@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:diary/models/note.dart';
 import 'package:diary/Repository/notes_repository.dart';
-import 'package:provider/provider.dart';
+
 
 class NotesProvider with ChangeNotifier {
   List<Note>? notes;

@@ -20,7 +20,13 @@ class _HomeState extends State<Home> {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.deepPurpleAccent,
-        title: const Text('My Diary'),
+        title: const Text(
+            'My Diary',
+          style: TextStyle(
+            color: Colors.white
+          ),
+
+        ),
         centerTitle: true,
       ),
 
@@ -28,7 +34,7 @@ class _HomeState extends State<Home> {
           builder: (context, provider, child) {
             return provider.notes?.isEmpty?? true? const Center(child: Text('Empty')):
             ListView(
-              children: provider.notes?.map((e) => Container(child: ItemNote(note: e)))?.toList()?? [],
+              children: provider.notes?.map((e) => Container(child: ItemNote(note: e))).toList()?? [],
             );
           },
         ),

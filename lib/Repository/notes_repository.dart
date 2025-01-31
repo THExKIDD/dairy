@@ -30,6 +30,7 @@ class NotesRepository {
       note.toMap(),
       conflictAlgorithm: ConflictAlgorithm.replace,
     );
+    return null;
   }
 
   static Future<List<Note>> getNotes() async {

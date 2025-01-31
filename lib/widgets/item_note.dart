@@ -1,6 +1,5 @@
 import 'package:diary/widgets/add_note_screen.dart';
 import 'package:flutter/material.dart';
-import 'package:diary/Repository/notes_repository.dart';
 import 'package:diary/models/note.dart';
 import 'package:intl/intl.dart';
 
@@ -11,43 +10,48 @@ class ItemNote extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final size = MediaQuery.of(context).size;
     return GestureDetector(
       onTap: ()
       {
         Navigator.push(context, MaterialPageRoute(builder: (_) => AddNoteScreen(note: note)));
       },
       child: Container(
-        margin: EdgeInsets.symmetric(vertical: 10,horizontal: 5),
+        margin: const EdgeInsets.symmetric(vertical: 10,horizontal: 5),
         child: Row(
           children: [
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 20,vertical: 5),
               child: Container(
+
                 decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(20),
-                  color: Colors.purpleAccent,
+                  borderRadius: BorderRadius.circular(10),
+                  color: Colors.deepPurpleAccent,
                 ),
                 child: Column(
                   children: [
                     Text(
                         DateFormat(DateFormat.ABBR_MONTH).format(note.createdAt),
-                      style: TextStyle(
+                      style: const TextStyle(
                         color: Colors.white70,
+                        fontSize: 20
                       ),
                     ),
-                    SizedBox(height: 3),
+                    const SizedBox(height: 3),
                     Text(
                         DateFormat(DateFormat.DAY).format(note.createdAt),
-                      style: TextStyle(
+                      style: const TextStyle(
                         color: Colors.white,
+                          fontSize: 20,
                       ),
 
                     ),
-                    SizedBox(height: 3),
+                    const SizedBox(height: 3),
                     Text(
                       note.createdAt.year.toString(),
-                      style: TextStyle(
+                      style: const TextStyle(
                         color: Colors.white70,
+                          fontSize: 20,
                       ),
 
                     ),
@@ -56,7 +60,7 @@ class ItemNote extends StatelessWidget {
                 ),
               ),
             ),
-            SizedBox(width: 15),
+            const SizedBox(width: 15),
             Expanded(
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -83,7 +87,7 @@ class ItemNote extends StatelessWidget {
                     ),
                     Text(
                       note.description,
-                      style: TextStyle(
+                      style: const TextStyle(
                         fontWeight: FontWeight.w300,
                         height: 1.5,
                       ),
